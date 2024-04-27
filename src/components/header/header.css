@@ -1,0 +1,24 @@
+.search-box {
+    /* position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    */
+    min-height: 100px;
+    background-color: white;
+    z-index: 100;
+    transform: translateY(-100%);
+}
+.search-box form {
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+.search-box.openit {
+    transform: translateY(0);
+}
+.bg-over {
+    z-index: 90;
+}
+.search-box label {
+    width: 100%;
+}
