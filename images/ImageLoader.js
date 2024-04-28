@@ -1,5 +1,8 @@
 'use client'
- 
+
 export default function myImageLoader({ src }) {
-  return `https://fakestoreapi.com/img/${src}`;
+  if (src !== "contact_us.jpg") {
+    return `https://fakestoreapi.com/img/${src}`;
+  }
+  return src
 }

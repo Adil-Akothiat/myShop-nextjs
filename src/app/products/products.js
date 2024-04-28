@@ -19,14 +19,14 @@ const Products = ({
     // const [orderPrice, setOrderPrice] = useState(null);
     const [resetPrice, setResetPrice] = useState(false);
 
-    const setCatHandler = ({target})=> {
-        if(target.value != "Category") {
-            var filteredProducts = filterByCategory(products, target.value);
+    const setCatHandler = (category)=> {
+        if(category != "Category") {
+            var filteredProducts = filterByCategory(products, category);
             if(maxPrice != null) {
                 filteredProducts = filterByPrice(filteredProducts, Math.min(...products.map(({price})=> +price)), maxPrice)
             }
             setMyProducts(filteredProducts);
-            setCategory(target.value);
+            setCategory(category);
             setPagProducts(filteredProducts);
             return;
         }

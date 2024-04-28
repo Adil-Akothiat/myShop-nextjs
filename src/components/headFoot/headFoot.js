@@ -1,11 +1,13 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import { getAllCategories } from "@/api/get";
 
-const HeadFoot = ({ children })=> {
+const HeadFoot = async ({ children })=> {
+    const categories = await getAllCategories();
     return(
         <>
-            <Header />
+            <Header categories={categories} />
             {
                 children
             }

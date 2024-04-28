@@ -6,6 +6,7 @@ import "../../../products/productCard/card.css";
 
 const Section2 = ({ products }) => {
     const container = useRef(null);
+    products = products.slice(0, 10);
 
     const scrollLeftHandler = ()=> {
         if(container.current.scrollLeft > 0) {

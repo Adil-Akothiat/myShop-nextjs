@@ -3,12 +3,13 @@ import React from "react";
 import ShopCardBar from "./shopCartBar";
 import SearchBar from "./searchBar";
 import MenuBar from "./menu";
+import "../../app/products/productCard/card.css";
 
-const Header = () => {
+const Header = ({ categories }) => {
     return (
         <header className="navbar mb-12 border-b">
             <div className="navbar bg-base-100">
-                <MenuBar />
+                <MenuBar categories={categories}/>
                 <div className="navbar-end">
                     <SearchBar />
                     <ShopCardBar />

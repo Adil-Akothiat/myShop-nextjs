@@ -2,7 +2,8 @@
 import Link from "next/link";
 import React from "react";
 
-const MenuBar = () => {
+
+const MenuBar = ({ categories }) => {
     return (
         <>
             <div className="navbar-start">
@@ -12,27 +13,25 @@ const MenuBar = () => {
                     </div>
                     <ul tabIndex={1} className="menu menu-sm dropdown-content mt-3 p-2 z-20 shadow bg-base-100 rounded-box w-52">
                         {/* <li> */}
-                            <Link href="/">Home</Link>
+                        <Link href="/">Home</Link>
                         {/* </li> */}
                         <li>
                             <Link href="#categories">Categories</Link>
                             <ul className="p-2">
-                                <li>
-                                    <Link href="#category1">Category1</Link>
-                                </li>
-                                <li>
-                                    <Link href="#category2">Category2</Link>
-                                </li>
-                                <li>
-                                    <Link href="#category3">Category3</Link>
-                                </li>
+                                {
+                                    categories.map((category, i) => (
+                                        <li key={"cat-" + i}>
+                                            <Link href={"/products?category=" + category}>{category}</Link>
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </li>
                         <li>
                             <Link href="/products">Products</Link>
                         </li>
                         <li>
-                            <Link href="#contact">Contact</Link>
+                            <Link href="/contact">Contact</Link>
                         </li>
                     </ul>
                 </div>
@@ -47,15 +46,13 @@ const MenuBar = () => {
                         <details>
                             <summary>Categories</summary>
                             <ul className="p-2">
-                                <li>
-                                    <Link href="#category1">Category1</Link>
-                                </li>
-                                <li>
-                                    <Link href="#category2">Category2</Link>
-                                </li>
-                                <li>
-                                    <Link href="#category3">Category3</Link>
-                                </li>
+                                {
+                                    categories.map((category, i) => (
+                                        <li key={"cat-" + i}>
+                                            <Link href={"/products?category=" + category}>{category}</Link>
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </details>
                     </li>
@@ -63,7 +60,7 @@ const MenuBar = () => {
                         <Link href="/products">Products</Link>
                     </li>
                     <li>
-                        <Link href="#contact">Contact</Link>
+                        <Link href="/contact">Contact</Link>
                     </li>
                 </ul>
             </div>
