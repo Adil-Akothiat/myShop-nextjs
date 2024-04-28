@@ -8,7 +8,11 @@ import Section4 from "./components/sections/section4";
 import Section5 from "./components/sections/section5";
 
 const Home = async () => {
-    const products = await getAllProducts();
+    var products = await getAllProducts();
+    products = products.map(p=> ({
+        ...p,
+        image: p.image.split("/")[p.image.split("/").length-1]
+    }));
     return (
         <>
             <Section1 products={products} /> 

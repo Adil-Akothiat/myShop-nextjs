@@ -2,16 +2,18 @@
 import React, { useEffect, useState } from "react";
 
 const ByPrice = ({ prices, priceHandler, resetPrice })=> {
-    let [price, setPrice] = useState(Math.min(...prices));
+    const minPrice = Math.min(...prices);
+    var [price, setPrice] = useState(minPrice);
+
     const setRangePrice = ({target})=> {
         setPrice(target.value);
         priceHandler(Math.min(...prices), target.value);
     }
     useEffect(()=> {
         if(resetPrice) {
-            setPrice(Math.min(...prices));
+            setPrice(minPrice);
         }
-    }, [resetPrice])
+    }, [minPrice, resetPrice])
     return (
         <div className="mb-4">
             <h4 className="font-bold mb-4">Price:</h4>

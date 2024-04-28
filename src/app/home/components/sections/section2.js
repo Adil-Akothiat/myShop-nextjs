@@ -1,6 +1,7 @@
 "use client";
-import Link from "next/link";
 import React, { useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Section2 = ({ products }) => {
     const container = useRef(null);
@@ -62,7 +63,13 @@ const Section2 = ({ products }) => {
                             >
                                 <div className="border border-slate-200 rounded-lg p-3">
                                     <Link href="#buy" className="select-none">
-                                        <img className="object-contain w-96 h-40 select-none" src={image} alt={title} />
+                                        <Image 
+                                            src={image} 
+                                            alt={title} 
+                                            width="0"
+                                            height="0"
+                                            className="object-contain w-96 h-40 select-none" 
+                                        />
                                     </Link>
                                 </div>
                                 <div className="px-4">

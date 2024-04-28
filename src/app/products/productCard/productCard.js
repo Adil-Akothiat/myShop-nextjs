@@ -1,11 +1,17 @@
 import React from "react";
 import styles from "./card.module.css";
+import Image from "next/image";
 
 const ProductCard = ({ product }) => {
     return (
         <div className="border rounded-md overflow-hidden bg-white">
             <div className={styles.cardTCustom}>
-                <img src={product.image} alt={product.title} className="object-cover w-max h-max scale-75 hover:scale-100 duration-300 ease-in"/>
+                <Image
+                    src={product.image}
+                    alt={product.title}
+                    width="0"
+                    height="0"
+                    className="object-cover w-max h-max scale-75 hover:scale-100 duration-300 ease-in" />
             </div>
             <div className="p-3 mt-4 border-t">
                 <h3 className="font-bold mb-4 w-3/4">{product.title}</h3>

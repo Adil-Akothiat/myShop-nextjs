@@ -16,7 +16,7 @@ const Products = ({
     const [category, setCategory] = useState(null);
     const [loading, setLoading] = useState(true);
     const [pagProducts, setPagProducts] = useState(products);
-    const [orderPrice, setOrderPrice] = useState(null);
+    // const [orderPrice, setOrderPrice] = useState(null);
     const [resetPrice, setResetPrice] = useState(false);
 
     const setCatHandler = ({target})=> {
@@ -34,7 +34,7 @@ const Products = ({
         setCategory(null);
         setPagProducts(products);
         updateHandler(0, 6, products);
-        sortProducts();
+        // sortProducts();
     }
     const priceHandler = (minPrice, maxPrice)=> {
         var filteredProducts = filterByPrice(products, minPrice, maxPrice);
@@ -45,7 +45,7 @@ const Products = ({
         setMaxPrice(maxPrice);
         setPagProducts(filteredProducts);
         updateHandler(0, 6, filteredProducts);
-        sortProducts();
+        // sortProducts();
     }
     const resetHandler = ()=> {
         setMyProducts(products);
@@ -66,31 +66,31 @@ const Products = ({
         setMyProducts(p.slice(s, e));
         setLoading(false);
         document.getElementById("paginnation").classList.remove("opacity-0");
-        sortProducts();
+        // sortProducts();
     }
     
     function resetRadio () {
         document.querySelectorAll("[name='price_order']").forEach(e=> e.checked = false);
     }
-    function sortProducts () {
-        if(orderPrice !== null) {
-            setOrderPrice(orderPrice);
-        }
-    }
+    // function sortProducts () {
+    //     if(orderPrice !== null) {
+    //         setOrderPrice(orderPrice);
+    //     }
+    // }
 
-    const updateByPriceOrderHandler = (order)=> setOrderPrice(order);
+    // const updateByPriceOrderHandler = (order)=> setOrderPrice(order);
 
     // order change state
-    useEffect(()=> {
-        if(orderPrice !== null) {    
-            if(orderPrice === "low") {
-                setMyProducts(quickSort(myProducts, "asc"));
-            }
-            if(orderPrice === "high") {
-                setMyProducts(quickSort(myProducts, "desc"));            
-            }
-        }
-    }, [orderPrice])
+    // useEffect(()=> {
+    //     if(orderPrice !== null) {    
+    //         if(orderPrice === "low") {
+    //             setMyProducts(quickSort(myProducts, "asc"));
+    //         }
+    //         if(orderPrice === "high") {
+    //             setMyProducts(quickSort(myProducts, "desc"));            
+    //         }
+    //     }
+    // }, [orderPrice, myProducts])
 
     return (
         <div className="md:flex justify-between gap-x-6">
@@ -100,7 +100,7 @@ const Products = ({
                 categories={categories} 
                 priceHanlder={priceHandler}
                 resetHandler={resetHandler}
-                updateByPriceOrder={updateByPriceOrderHandler}
+                // updateByPriceOrder={updateByPriceOrderHandler}
                 resetPrice={resetPrice}
             />
             <div className="flex-initial md:w-9/12 relative min-h-64">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const ByOrder = ({ updateByPriceOrder }) => {
     const [priceOrder, setPriceOrder] = useState(null);
@@ -9,13 +9,21 @@ const ByOrder = ({ updateByPriceOrder }) => {
     const setHighHandler = ({target})=> {
         setPriceOrder(target.value);
     }
+    const memoizedUpdateByPriceOrder = useCallback(
+        (priceOrder) => {
+            if (priceOrder !== null) {
+                updateByPriceOrder(priceOrder);
+            }
+        },
+        [updateByPriceOrder]
+    );
     
     // on state change
     useEffect(()=> {
         if(priceOrder != null) {
-            updateByPriceOrder(priceOrder);
+            memoizedUpdateByPriceOrder(priceOrder)
         }
-    },[priceOrder])
+    },[memoizedUpdateByPriceOrder,priceOrder])
     return (
         <div className="mb-4">
             <h4 className="font-bold mb-4">Price Order:</h4>

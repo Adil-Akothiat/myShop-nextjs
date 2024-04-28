@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Pagination = ({ products, updateProducts }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  var itemsPerPage = 6;
+  const itemsPerPage = 6;
   var nbPage = Math.ceil(products.length / itemsPerPage);
 
   function previousPage() {
@@ -14,19 +14,15 @@ const Pagination = ({ products, updateProducts }) => {
     else setCurrentPage(currentPage + 1);
   }
 
-  const updatePaginnation = () => {
-    var indexStart = (currentPage - 1) * itemsPerPage;
-    var indexEnd = indexStart + itemsPerPage;
-    updateProducts(indexStart, indexEnd, products);
-  }
-  // paginnation mount
-  useEffect(() => {
-    updatePaginnation();
-  }, [])
   // paginnation change
   useEffect(() => {
+    const updatePaginnation = () => {
+      const indexStart = (currentPage - 1) * itemsPerPage;
+      const indexEnd = indexStart + itemsPerPage;
+      updateProducts(indexStart, indexEnd, products);
+    }
     updatePaginnation();
-  }, [currentPage])
+  }, [currentPage, products])
   // update products
   useEffect(() => {
     setCurrentPage(1);

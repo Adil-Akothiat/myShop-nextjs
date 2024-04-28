@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const CarouselLayout = ({ products }) => {
     var top5 = products.slice(10, 15);
@@ -37,7 +38,12 @@ const CarouselLayout = ({ products }) => {
                             href="/products" 
                             className={i===0 ? "show" : ""}
                         >
-                            <img src={image} alt={title} className="mix-blend-multiply"/>
+                            <Image  
+                                src={image}
+                                width="0"
+                                height="0"
+                                alt={title} className="mix-blend-multiply"
+                            />
                             <span className="price bg-yellow-200 text-stone-800 font-bold p-4 rounded-full text-xs"><strong className="text-xl">{String(price).split(".")[0]}</strong>,{String(price).split(".")[1] === undefined ? "00" : String(price).split(".")[1]} USD</span>
                         </Link>
                     );
