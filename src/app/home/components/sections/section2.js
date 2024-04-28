@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import "../../../products/productCard/card.css";
 
 const Section2 = ({ products }) => {
     const container = useRef(null);
@@ -51,21 +52,21 @@ const Section2 = ({ products }) => {
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" /></svg>
             </button>
             <div
-                className="flex flex-row flex-nowrap cust-scroll overflow-x-auto overflow-y-hidden items-stretch gap-x-6 smooth-scroll"
+                className="flex flex-row flex-nowrap cust-scroll overflow-x-auto overflow-y-hidden items-stretch gap-x-6 smooth-scroll p-3"
                 ref={container}
             >
                 {
                     products.map(({ image, title }, i) => {
                         return (
                             <div
-                                className="min-w-80 max-h-56 mb-5 overflow-hidden bg-white"
+                                className="min-w-64 max-h-64 mb-5 overflow-hidden bg-white custom-shadow rounded-lg"
                                 key={"prd-" + i}
                             >
-                                <div className="border border-slate-200 rounded-lg p-3">
+                                <div className="p-2">
                                     <Link href="#buy" className="select-none">
                                         <Image 
                                             src={image} 
-                                            alt={title} 
+                                            alt={title}
                                             width="0"
                                             height="0"
                                             className="object-contain w-96 h-40 select-none" 
