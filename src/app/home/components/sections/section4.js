@@ -32,6 +32,7 @@ const Section4 = ({ products }) => {
                         alt={product.title}
                         width="0"
                         height="0"
+                        className="w-full h-full object-contain"
                     />
                 </div>
             </div>
