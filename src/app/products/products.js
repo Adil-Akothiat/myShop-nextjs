@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import ProductCard from "./productCard/productCard";
-import Pagination from "./pagination";
-import FilterProducts from "./filter/filter";
-import { filterByCategory, filterByPrice, quickSort } from "./utils/utils";
-import Unfound from "./alert/unfound";
+import ProductCard from "./components/productCard/productCard";
+import Pagination from "./components/pagination";
+import FilterProducts from "./components/filter/filter";
+import { filterByCategory, filterByPrice, quickSort } from "./components/utils/utils";
+import Unfound from "./components/alert/unfound";
 import Loader from "../../components/loader/loader";
 
 const Products = ({ 

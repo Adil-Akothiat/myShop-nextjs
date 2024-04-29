@@ -13,7 +13,7 @@ const Section1 = ({ products }) => {
                             <h4 className="font-bold">Best price</h4>
                         </div>
                         <div>
-                            <Link type="button" href="#buynow" className="bg-white text-slate-700 uppercase rounded-full px-5 py-3 border border-white hover:bg-slate-700 hover:text-white">buy now!</Link>
+                            <Link type="button" href={"/products"} className="bg-white text-slate-700 uppercase rounded-full px-5 py-3 border border-white hover:bg-slate-700 hover:text-white">buy now!</Link>
                         </div>
                     </div>
                 </div>

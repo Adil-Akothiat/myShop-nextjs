@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import contactUsImg from "./image/contact_us.jpg";
-import "../products/productCard/card.css";
+import "../products/components/productCard/card.css";
 
 const Contact = ()=> {
     return (

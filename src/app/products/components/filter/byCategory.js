@@ -11,7 +11,7 @@ const ByCategory = ({ categories, setCatHandler }) => {
             select.current.value = searchCat;
             setCatHandler(searchCat);
         } else {
-            select.current.value = searchCat;
+            select.current.value = "Category";
             setCatHandler("Category");
         }
     }, [searchParams])

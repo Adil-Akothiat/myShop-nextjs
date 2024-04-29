@@ -35,7 +35,7 @@ const CarouselLayout = ({ products }) => {
                     return (
                         <Link 
                             key={"crs-"+i}
-                            href="/products" 
+                            href={"/products/"+title} 
                             className={i===0 ? "show" : ""}
                         >
                             <Image  

@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import "../../../products/productCard/card.css";
+import "../../../products/components/productCard/card.css";
 
 const Section2 = ({ products }) => {
     const container = useRef(null);
@@ -39,7 +39,8 @@ const Section2 = ({ products }) => {
     }
 
     return (
-        <section className="items-center md-gap-5 w-full relative">
+        <section className="items-center md-gap-5 w-full relative grid grid-cols-1 gap-y-8">
+            <h3 className="text-2xl font-bold text-slate-700 pl-3 after relative after:content-[''] after:absolute after:left-0 after:top-0 after:h-full after:w-1 after:bg-slate-700">Latest Products</h3>
             <button 
                 className="bg-slate-300 rounded-full p-3 absolute left-0 center-y opacity-40 hover:opacity-90"
                 onClick={scrollLeftHandler}
@@ -64,7 +65,7 @@ const Section2 = ({ products }) => {
                                 key={"prd-" + i}
                             >
                                 <div className="p-2">
-                                    <Link href="#buy" className="select-none">
+                                    <Link href={"/products/"+title} className="select-none">
                                         <Image 
                                             src={image} 
                                             alt={title}
@@ -76,7 +77,10 @@ const Section2 = ({ products }) => {
                                 </div>
                                 <div className="px-4">
                                     <h2 className="card-title mt-3 pb-3" title={title}>
-                                        <Link href="#buy" className="text-sm hover:text-slate-500 select-none">
+                                        <Link 
+                                            href={"/products/"+title} 
+                                            className="text-sm hover:text-slate-500 select-none"
+                                        >
                                             {
                                                 title.substr(0, 30).length === title.length ? title :
                                                     title.substr(0, 30) + "..."
