@@ -6,6 +6,8 @@ import Link from "next/link";
 import "../components/productCard/card.css";
 import ProductCard from "../components/productCard/productCard";
 import Unfound from "../components/alert/unfound";
+import store from "@/redux/cart/store";
+import { Provider } from "react-redux";
 
 const Product = ({ products }) => {
     const [quantity, setQuantity] = useState(1);
@@ -26,7 +28,7 @@ const Product = ({ products }) => {
     }
 
     return (
-        <>
+        <Provider store={store}>
             <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-y-none md:gap-x-6">
                 <div className="h-fit p-4 rounded-md md:border">
                     <Image
@@ -85,9 +87,8 @@ const Product = ({ products }) => {
                 {
                     products.filter(p=> p.category.trim() === product.category.trim() && p.title.trim() !== decodedTitle).map((p, i)=> i <= 3 ? <ProductCard key={"pgx-"+i} product={p}/> : null)
                 }
-
             </div>
-        </>
+        </Provider>
     );
 }
 

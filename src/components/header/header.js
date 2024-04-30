@@ -6,28 +6,32 @@ import SearchBar from "./searchBar";
 import MenuBar from "./menu";
 import "../../app/products/components/productCard/card.css";
 import "../../app/products/components/productCard/card.css";
+import store from "@/redux/cart/store";
+import { Provider } from "react-redux";
 
 const Header = ({ categories }) => {
-    const [opacity, setOpacity] = useState("bg-white opacity-100");
+    const [opacity, setOpacity] = useState("bg-opacity-100");
     useEffect(()=>{
         window.onscroll = ()=> {
             if(window.scrollY > 10) {
-                setOpacity("bg-slate-300 opacity-75")
+                setOpacity("bg-opacity-75");
             } else {
-                setOpacity("bg-white opacity-100")
+                setOpacity("bg-opacity-100");
             }
         }
     },[])
     return (
-        <header className={"navbar mb-12 sticky top-0 z-[1000] "+opacity}>
-            <div className="navbar">
-                <MenuBar categories={categories}/>
-                <div className="navbar-end">
-                    <SearchBar />
-                    <ShopCardBar />
+        <Provider store={store}>
+            <header className={"navbar mb-12 sticky top-0 z-[1000] bg-white "+opacity}>
+                <div className="navbar">
+                    <MenuBar categories={categories}/>
+                    <div className="navbar-end">
+                        <SearchBar />
+                        <ShopCardBar />
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
+        </Provider>
     );
 }
 

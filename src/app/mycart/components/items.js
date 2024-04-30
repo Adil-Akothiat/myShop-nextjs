@@ -1,0 +1,61 @@
+"use client";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const Items = ({ items, addItemHandler, removeItemHandler, count }) => {
+    if (count === 0) {
+        return (
+            <div className="border rounded-md">
+                <div className="p-4 border-b">
+                    <h5>Basket</h5>
+                </div>
+                <div className="p-4 grid grid-cols-1 gap-y-2">
+                    <p className="text-stone-400 font-semibold">
+                        You didn&apos;t have any product in cart.
+                    </p>
+                    <Link href="/products" className="btn btn-neutral w-fit">Buy Now</Link>
+                </div>
+            </div>
+        );
+    }
+    return (
+        <div className="border rounded-md">
+            <div className="p-4 border-b">
+                <h5>Basket</h5>
+            </div>
+            {
+                items.map((item, i) => (
+                    <div key={"cart-" + i} className={`grid grid-cols-1 gap-y-3 p-4 md:grid-cols-2 ${items.length === (i + 1) ? "" : "border-b"}`}>
+                        <div className="grid grid-cols-1 gap-y-1 md:grid-cols-2 md:items-center">
+                            <Image
+                                src={item.image}
+                                alt={item.title}
+                                width="0"
+                                height="0"
+                                className="w-24 h-24 object-contain"
+                            />
+                            <h4 className="text-sm font-bold">{item.title}</h4>
+                        </div>
+                        <div className="grid grid-cols-1 gap-y-2 md:grid-cols-2 md:items-center">
+                            <div className="flex items-center w-24 border">
+                                <button className="py-1 px-2 hover:bg-slate-700 hover:text-white"
+                                    onClick={() => removeItemHandler(item)}
+                                >-</button>
+                                <input type="number" name="quantity" id="qt" value={item.quantity} className="text-center border-l border-r w-full outline-none py-1 px-2" readOnly={true} />
+                                <button className="py-1 px-2 hover:bg-slate-700 hover:text-white"
+                                    onClick={() => addItemHandler(item)}
+                                >+</button>
+                            </div>
+                            <div>
+                                <strong>{(item.price * item.quantity).toFixed(2)} USD</strong>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    );
+}
+
+export default Items;
