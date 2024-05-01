@@ -2,18 +2,18 @@ import React, { Suspense } from "react";
 import Home from "./home/home";
 import HeadFoot from "@/components/headFoot/headFoot";
 import { getAllProducts } from "../api/get";
-// import Products from "./products/page";
+import Loader from "./loader/loader";
 
 export default async function MainPage() {
   var products = await getAllProducts();
 
   return (
-    <Suspense>
-      <main>
-        <HeadFoot>
-          <Home products={products}/>
-        </HeadFoot>
-      </main>
-    </Suspense>
+    <HeadFoot>
+      <Suspense fallback={<Loader />}>
+        <main style={{minHeight:"100vh"}}>
+          <Home products={products} />
+        </main>
+      </Suspense>
+    </HeadFoot>
   );
 }

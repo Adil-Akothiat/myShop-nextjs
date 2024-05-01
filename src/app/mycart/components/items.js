@@ -26,28 +26,32 @@ const Items = ({ items, addItemHandler, removeItemHandler, count }) => {
             </div>
             {
                 items.map((item, i) => (
-                    <div key={"cart-" + i} className={`grid grid-cols-1 gap-y-3 p-4 md:grid-cols-2 ${items.length === (i + 1) ? "" : "border-b"}`}>
+                    <div key={"cart-" + i} className={`grid grid-cols-1 gap-y-3 p-4 md:grid-cols-2 md:gap-x-6 ${items.length === (i + 1) ? "" : "border-b"}`}>
                         <div className="grid grid-cols-1 gap-y-1 md:grid-cols-2 md:items-center">
-                            <Image
-                                src={item.image}
-                                alt={item.title}
-                                width="0"
-                                height="0"
-                                className="w-24 h-24 object-contain"
-                            />
-                            <h4 className="text-sm font-bold">{item.title}</h4>
+                            <Link href={"/products/"+item.title}>
+                                <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    width="0"
+                                    height="0"
+                                    className="w-24 h-24 object-contain"
+                                />
+                            </Link>
+                            <Link href={"/products/"+item.title}>
+                                <h4 className="text-sm font-bold">{item.title}</h4>
+                            </Link>
                         </div>
-                        <div className="grid grid-cols-1 gap-y-2 md:grid-cols-2 md:items-center">
-                            <div className="flex items-center w-24 border">
+                        <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-2 lg:items-center">
+                            <div className="flex items-center max-w-60 border">
                                 <button className="py-1 px-2 hover:bg-slate-700 hover:text-white"
                                     onClick={() => removeItemHandler(item)}
                                 >-</button>
-                                <input type="number" name="quantity" id="qt" value={item.quantity} className="text-center border-l border-r w-full outline-none py-1 px-2" readOnly={true} />
+                                <input type="number" name={"quantity"} id={"qt-"+item.id} value={item.quantity} className="text-center border-l border-r w-full outline-none py-1 px-2" readOnly={true} />
                                 <button className="py-1 px-2 hover:bg-slate-700 hover:text-white"
                                     onClick={() => addItemHandler(item)}
                                 >+</button>
                             </div>
-                            <div>
+                            <div className="text-left lg:text-right">
                                 <strong>{(item.price * item.quantity).toFixed(2)} USD</strong>
                             </div>
                         </div>

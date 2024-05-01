@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "@/redux/cart/store";
 import Items from "./components/items";
 import TotalItems from "./components/totalItems";
+import ScrollAnimation from "@/aos/init";
+import Section5 from "../home/components/sections/section5";
 
 const MyCart = () => {
     const dispatch = useDispatch();
@@ -19,15 +21,18 @@ const MyCart = () => {
 
 
     return (
-        <div className="grid grid-cols-1 gap-y-4 md:grid-cols-2 md:gap-y-none md:gap-x-4">
+        <ScrollAnimation animation={"fade-up"} duration={"2000"}>
+        <div className="grid grid-cols-1 gap-y-4 lg:grid-cols-2 lg:gap-y-none lg:gap-x-4 mb-16">
             <Items 
                 items={items}
                 count={count}
                 addItemHandler={addItemHandler}
                 removeItemHandler={removeItemHandler}
-            />
+                />
             <TotalItems items={items} count={count}/>
         </div>
+        <Section5 />
+        </ScrollAnimation>
     );
 }
 

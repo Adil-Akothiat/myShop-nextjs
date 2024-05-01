@@ -6,7 +6,7 @@ const TotalItems = ({ items, count }) => {
     const totalPrice = items.length > 0 ? items.map(item => item.price * item.quantity).reduce((ac, cu) => ac + cu).toFixed(2) : 0;
     
     return (
-        <div className="border rounded-md">
+        <div className="border rounded-md h-fit">
             <div className="p-4 border-b">
                 <h5>Basket Total</h5>
             </div>
@@ -24,7 +24,7 @@ const TotalItems = ({ items, count }) => {
                             </div>
                             <div className="flex items-center justify-between">
                                 <strong>Total</strong>
-                                <strong>{Number(totalPrice) + shipping} USD</strong>
+                                <strong>{(Number(totalPrice) + shipping).toFixed(2)} USD</strong>
                             </div>
                         </>
                     ) : null

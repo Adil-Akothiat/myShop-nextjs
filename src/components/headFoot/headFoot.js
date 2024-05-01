@@ -5,6 +5,7 @@ import { getAllCategories } from "@/api/get";
 
 const HeadFoot = async ({ children })=> {
     const categories = await getAllCategories();
+    
     return(
         <>
             <Header categories={categories} />

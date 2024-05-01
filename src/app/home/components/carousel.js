@@ -29,7 +29,7 @@ const CarouselLayout = ({ products }) => {
     }, [mouseOn])
 
     return (
-        <div className="rounded-b-lg md:rounded-none md:rounded-r-lg w-full p-5 custom-carousel bg-white" id="crs">
+        <div className="rounded-t-lg md:rounded-none md:rounded-r-lg w-full p-5 custom-carousel bg-white" id="crs">
             {
                 top5.map(({image, title, price}, i)=> {
                     return (

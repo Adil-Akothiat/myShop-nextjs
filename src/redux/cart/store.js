@@ -1,42 +1,44 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const reducersConfig = {
-    addItem: (state, action)=> {
+    addItem: (state, action) => {
         var isExist = false;
         var newItem = action.payload;
-        for(let i = 0; i < state.items.length; i++) {
-            if(state.items[i].id === newItem.id) {
+        for (let i = 0; i < state.items.length; i++) {
+            if (state.items[i].id === newItem.id) {
                 state.items[i].quantity++;
-                state.count++;
                 isExist = true;
                 break;
             }
         }
-        if(isExist) return;
-        state.items.push({...action.payload, quantity: 1});
-        state.count++;
+        if (isExist) return;
+        if (action.payload.quantity) {
+            state.items.push(action.payload);
+            state.count++;
+        } else {
+            state.items.push({ ...action.payload, quantity: 1 });
+            state.count++;
+        }
     },
-    removeItem: (state, action)=> {
+    removeItem: (state, action) => {
         var isExist = false;
         for (let item of state.items) {
-            if(item.id === action.payload.id) {
-                if(item.quantity > 1) {
+            if (item.id === action.payload.id) {
+                if (item.quantity > 1) {
                     item.quantity--;
-                    state.count--;
                     isExist = true;
                     break;
                 }
             }
         }
-        if(isExist) return;
-
-        state.items = state.items.filter(item=> item.id !== action.payload.id);
+        if (isExist) return;
+        state.items = state.items.filter(item => item.id !== action.payload.id);
         state.count--;
     }
 }
 
 const cartSlice = createSlice({
-    name:"cart",
+    name: "cart",
     initialState: {
         items: [],
         count: 0
