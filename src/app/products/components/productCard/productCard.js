@@ -6,13 +6,15 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addItem } from "@/redux/cart/store";
 import ScrollAnimation from "@/aos/init";
+import Product from "../../[name]/product";
 
 const ProductCard = ({ product }) => {
     const dispatch = useDispatch();
+    const priceAfterDiscount = (product.price - ((product.price * product.discountPercentage)/ 100)).toFixed(2);
 
     const calcStars = () => {
         var stars = [];
-        for (let i = 1; i <= Math.round(product.rating.rate); i++) stars.push(1);
+        for (let i = 1; i <= Math.round(product.rating); i++) stars.push(1);
         for (let i = 1; i <= 5 - stars.length; i++) stars.push(0);
         return stars;
     }
@@ -27,7 +29,7 @@ const ProductCard = ({ product }) => {
                 <div className="p-2">
                     <Link href={`/products/${product.title}`}>
                         <Image
-                            src={product.image}
+                            src={product.thumbnail}
                             alt={product.title}
                             title={product.title}
                             width="0"
@@ -38,6 +40,7 @@ const ProductCard = ({ product }) => {
                 </div>
                 <div className="p-3 grid grid-cols-1 gap-y-3">
                     <div>
+                        <h3 className="uppercase text-sm mb-2 text-stone-500">{product.brand}</h3>
                         <h3
                             className="font-bold w-3/4 mb-2"
                             title={product.title}
@@ -60,12 +63,14 @@ const ProductCard = ({ product }) => {
 
                                 )
                             }
-                            <span className="text-stone-400 text-sm">({product.rating.count})</span>
                         </div>
                     </div>
 
                     <div className="flex justify-between items-center">
-                        <h4 className="text-xl font-semibold text-slate-500 mb-2"><span className="text-2xl">{product.price}</span> <span className="text-sm">USD</span></h4>
+                        <div>
+                            <h4 className="text-xl font-semibold text-slate-500">{priceAfterDiscount} USD</h4>
+                            <h4 className="line-through text-slate-400">{product.price.toFixed(2)}</h4>
+                        </div>
                         <button
                             className="custom-shadow block w-fit h-fit p-2 rounded-md hover:bg-slate-700 fill-slate-700 hover:fill-white duration-700"
                             onClick={addItemHandler}

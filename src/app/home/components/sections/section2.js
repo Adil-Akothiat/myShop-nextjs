@@ -60,7 +60,7 @@ const Section2 = ({ products }) => {
                     ref={container}
                 >
                     {
-                        products.map(({ image, title }, i) => {
+                        products.map(({ thumbnail, title }, i) => {
                             return (
                                 <div
                                     className="min-w-64 max-h-64 mb-5 overflow-hidden bg-white custom-shadow rounded-lg"
@@ -69,7 +69,7 @@ const Section2 = ({ products }) => {
                                     <div className="p-2">
                                         <Link href={"/products/" + title} className="select-none">
                                             <Image
-                                                src={image}
+                                                src={thumbnail}
                                                 alt={title}
                                                 width="0"
                                                 height="0"

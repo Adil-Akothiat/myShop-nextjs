@@ -13,8 +13,21 @@ const getAllCategories = async ()=> {
     return await fetch("https://fakestoreapi.com/products/categories").then(res=> res.json());
 }
 
+const getData = async (query) => {
+    var response = await fetch("https://dummyjson.com/"+query).then(res=> res.json());
+    if(query === "products") {
+        response = response.products.map(item=> ({
+            ...item,
+            thumbnail: item.thumbnail.split("/").slice(4).join("/")
+        }));
+        return response;
+    }
+    return response;
+}
+
 export {
     getAllProducts,
     getByCategory,
-    getAllCategories
+    getAllCategories,
+    getData
 };

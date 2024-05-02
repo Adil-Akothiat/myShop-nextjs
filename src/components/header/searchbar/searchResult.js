@@ -68,7 +68,7 @@ const SearchResult = ({ searchInput, products, closeSearch }) => {
                                 <div className="grid grid-cols-1 gap-y-3">
                                     <div className="border p-2 rounded-md">
                                         <Image
-                                            src={p.image}
+                                            src={p.thumbnail}
                                             alt={p.title}
                                             width="0"
                                             height="0"
@@ -77,7 +77,8 @@ const SearchResult = ({ searchInput, products, closeSearch }) => {
                                     </div>
                                     <div>
                                         <h4 className="">{p.title}</h4>
-                                        <h5 className="font-bold">{p.price} USD</h5>
+                                        <h5 className="font-bold">{(p.price -  ((p.price * p.discountPercentage) / 100))} USD</h5>
+                                        <h5 className="font-bold line-through text-stone-300">{p.price.toFixed(2)}</h5>
                                     </div>
                                 </div>
                             </Link>

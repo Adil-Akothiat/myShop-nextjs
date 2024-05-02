@@ -57,7 +57,6 @@ const Products = ({
         document.querySelector("input[type='range']").value = Math.min(...products.map(({ price }) => +price));
         setPagProducts(products);
         updateHandler(0, 6, products);
-        resetRadio();
         setResetPrice(true);
     }
 
@@ -70,30 +69,6 @@ const Products = ({
         document.getElementById("paginnation").classList.remove("opacity-0");
         // sortProducts();
     }
-
-    function resetRadio() {
-        document.querySelectorAll("[name='price_order']").forEach(e => e.checked = false);
-    }
-    // function sortProducts () {
-    //     if(orderPrice !== null) {
-    //         setOrderPrice(orderPrice);
-    //     }
-    // }
-
-    // const updateByPriceOrderHandler = (order)=> setOrderPrice(order);
-
-    // order change state
-    // useEffect(()=> {
-    //     if(orderPrice !== null) {    
-    //         if(orderPrice === "low") {
-    //             setMyProducts(quickSort(myProducts, "asc"));
-    //         }
-    //         if(orderPrice === "high") {
-    //             setMyProducts(quickSort(myProducts, "desc"));            
-    //         }
-    //     }
-    // }, [orderPrice, myProducts])
-
     return (
         <Provider store={store}>
             <div className="md:flex justify-between gap-x-6">
@@ -103,7 +78,6 @@ const Products = ({
                     categories={categories}
                     priceHanlder={priceHandler}
                     resetHandler={resetHandler}
-                    // updateByPriceOrder={updateByPriceOrderHandler}
                     resetPrice={resetPrice}
                 />
                 <div className="flex-initial md:w-9/12 relative min-h-64">

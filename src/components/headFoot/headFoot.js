@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import { getAllCategories, getAllProducts } from "@/api/get";
+import { getData } from "@/api/get";
 
 const HeadFoot = async ({ children })=> {
-    const categories = await getAllCategories();
-    const products = await getAllProducts();
+    const categories = await getData("products/categories");
+    const products = await getData("products");
     
     return(
         <>

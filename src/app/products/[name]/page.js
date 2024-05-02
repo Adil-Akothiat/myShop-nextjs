@@ -1,11 +1,11 @@
 import HeadFoot from "@/components/headFoot/headFoot";
 import React, { Suspense } from "react";
 import Product from "./product";
-import { getAllProducts } from "@/api/get";
+import { getAllProducts, getData } from "@/api/get";
 import Loader from "@/app/loader/loader";
 
 const ProductPage = async () => {
-    const products = await getAllProducts();
+    const products = await getData("products");
 
     return (
         <HeadFoot>

@@ -4,8 +4,7 @@ import Image from "next/image";
 import ScrollAnimation from "@/aos/init";
 
 const Section4 = ({ products }) => {
-    var red = 0.25;
-    var product = products.filter(p => p.price === (Math.max(...products.map(p => p.price))))[0];
+    var product = products.filter(p=> p.discountPercentage === Math.max(...products.map(({discountPercentage})=> discountPercentage)))[0];
     return (
         <ScrollAnimation animation={"fade-up"} duration={"2000"}>
         <section className="grid grid-cols-1 gap-y-8">
@@ -19,18 +18,18 @@ const Section4 = ({ products }) => {
                     </div>
                     <div className="mt-5">
                         <p>
-                            Last call for up to <strong className="text-2xl">{red * 100}%</strong> off!
+                            Last call for up to <strong className="text-2xl text-red-600">{product.discountPercentage}%</strong> off!
                         </p>
                     </div>
                     <div className="mt-8">
-                        <Link href={`/products/${product.title}?reduce=${red}`} className="btn btn-outline btn-neutral">
+                        <Link href={`/products/${product.title}?reduce=${product.discountPercentage}`} className="btn btn-outline btn-neutral">
                             Buy Now!
                         </Link>
                     </div>
                 </div>
                 <div className="mb-8 md:mb-0">
                     <Image
-                        src={product.image}
+                        src={product.thumbnail}
                         alt={product.title}
                         width="0"
                         height="0"

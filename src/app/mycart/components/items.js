@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Items = ({ items, addItemHandler, removeItemHandler, count }) => {
+    const priceAfterDiscount = (price, discount) => (price - ((price * discount) / 100));
     if (count === 0) {
         return (
             <div className="border rounded-md">
@@ -30,7 +31,7 @@ const Items = ({ items, addItemHandler, removeItemHandler, count }) => {
                         <div className="grid grid-cols-1 gap-y-1 md:grid-cols-2 md:items-center">
                             <Link href={"/products/"+item.title}>
                                 <Image
-                                    src={item.image}
+                                    src={item.thumbnail}
                                     alt={item.title}
                                     width="0"
                                     height="0"
@@ -46,13 +47,13 @@ const Items = ({ items, addItemHandler, removeItemHandler, count }) => {
                                 <button className="py-1 px-2 hover:bg-slate-700 hover:text-white"
                                     onClick={() => removeItemHandler(item)}
                                 >-</button>
-                                <input type="number" name={"quantity"} id={"qt-"+item.id} value={item.quantity} className="text-center border-l border-r w-full outline-none py-1 px-2" readOnly={true} />
+                                <input type="number" name={"quantity"} id={"qt-"+item.id} value={item.quantity} className="text-center border-l border-r w-full outline-none py-1 px-2" readOnly={true} min="1" max={`${item.stock}`}/>
                                 <button className="py-1 px-2 hover:bg-slate-700 hover:text-white"
                                     onClick={() => addItemHandler(item)}
                                 >+</button>
                             </div>
                             <div className="text-left lg:text-right">
-                                <strong>{(item.price * item.quantity).toFixed(2)} USD</strong>
+                                <strong>{(priceAfterDiscount(item.price, item.discountPercentage) * item.quantity).toFixed(2)} USD</strong>
                             </div>
                         </div>
                     </div>

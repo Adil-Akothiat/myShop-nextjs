@@ -5,7 +5,7 @@ const ProductImage = ({ product }) => {
     return (
         <div className="h-fit p-4 rounded-md md:border">
             <Image
-                src={product.image}
+                src={product.thumbnail}
                 alt={product.title}
                 width="0"
                 height="0"

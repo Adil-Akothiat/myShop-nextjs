@@ -3,7 +3,7 @@ import React from "react";
 
 const TotalItems = ({ items, count }) => {
     const shipping = 12.75;
-    const totalPrice = items.length > 0 ? items.map(item => item.price * item.quantity).reduce((ac, cu) => ac + cu).toFixed(2) : 0;
+    const totalPrice = items.length > 0 ? items.map(item => (item.price - ((item.price * item.discountPercentage) / 100)) * item.quantity).reduce((ac, cu) => ac + cu).toFixed(2) : 0;
     
     return (
         <div className="border rounded-md h-fit">

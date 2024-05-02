@@ -1,12 +1,13 @@
 import React, { Suspense } from "react";
 import Products from "./products";
-import { getAllProducts, getAllCategories } from "../../api/get";
+import { getAllProducts, getAllCategories, getData } from "../../api/get";
 import HeadFoot from "@/components/headFoot/headFoot";
 import Loader from "../loader/loader";
 
 const ProductPage = async () => {
-    var products = await getAllProducts();
-    const categories = await getAllCategories();
+    // var products = await getAllProducts();
+    const categories = await getData("products/categories");
+    var products = await getData("products");
 
     return (
         <HeadFoot>
