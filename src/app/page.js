@@ -6,7 +6,6 @@ import Loader from "./loader/loader";
 
 export default async function MainPage() {
   var products = await getAllProducts();
-
   return (
     <HeadFoot>
       <Suspense fallback={<Loader />}>

@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from "react";
 // import UserBar from "./userBar";
 import ShopCardBar from "./shopCartBar";
-import SearchBar from "./searchBar";
+import SearchBar from "./searchbar/searchBar";
 import MenuBar from "./menu";
 import "../../app/products/components/productCard/card.css";
 import "../../app/products/components/productCard/card.css";
 import store from "@/redux/cart/store";
 import { Provider } from "react-redux";
 
-const Header = ({ categories }) => {
+const Header = ({ categories, products }) => {
     const [opacity, setOpacity] = useState("bg-opacity-100");
     useEffect(()=>{
         window.onscroll = ()=> {
@@ -26,7 +26,9 @@ const Header = ({ categories }) => {
                 <div className="navbar">
                     <MenuBar categories={categories}/>
                     <div className="navbar-end">
-                        <SearchBar />
+                        <SearchBar 
+                            products={products}
+                        />
                         <ShopCardBar />
                     </div>
                 </div>
