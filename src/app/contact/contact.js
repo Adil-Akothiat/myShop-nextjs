@@ -3,7 +3,6 @@ import Image from "next/image";
 import contactUsImg from "./image/contact_us.jpg";
 import "../products/components/productCard/card.css";
 import ScrollAnimation from "@/aos/init";
-import Section5 from "../home/components/sections/section5";
 
 const Contact = () => {
     return (
@@ -37,7 +36,6 @@ const Contact = () => {
                     </div>
                 </form>
             </div>
-            <Section5 />
         </ScrollAnimation>
     );
 }

@@ -1,10 +1,10 @@
 import ScrollAnimation from "@/aos/init";
 import React from "react";
 
-const Section5 = () => {
+const NewsLetterSubscription = () => {
     return (
         <ScrollAnimation animation={"fade-up"} duration={"2000"}>
-            <section className="bg-slate-700 rounded-lg p-8 grid gap-y-5 lg:grid-cols-2 md:gap-y-none">
+            <section className="bg-slate-700 rounded-lg p-8 grid gap-y-5 lg:grid-cols-2 md:gap-y-none mt-20">
                 <div className="text-white">
                     <h6 className="text-2xl w-64 lg:text-4xl lg:w-96">
                         Subscribe for Latest Trends & Offers
@@ -22,4 +22,4 @@ const Section5 = () => {
     );
 }
 
-export default Section5;
+export default NewsLetterSubscription;

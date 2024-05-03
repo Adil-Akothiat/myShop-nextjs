@@ -5,13 +5,13 @@ import Loader from "../loader/loader";
 
 const ContactPage = () => {
     return (
-        <HeadFoot>
-            <main style={{minHeight:"100vh"}}>
-                <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader />}>
+            <HeadFoot>
+                <main style={{ minHeight: "100vh" }}>
                     <Contact />
-                </Suspense>
-            </main>
-        </HeadFoot>
+                </main>
+            </HeadFoot>
+        </Suspense>
     );
 }
 

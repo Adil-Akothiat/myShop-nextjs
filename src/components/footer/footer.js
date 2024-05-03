@@ -7,9 +7,9 @@ const Footer = () => {
     return (
         <footer className="bg-white mt-12 border-t pt-4">
             <div className="text-center mb-5">
-                <Link href="/" className="block text-xl">MyShop</Link>
+                <Link href="/" className="text-xl font-bold text-slate-700">Ak-Shop</Link>
             </div>
-            <ul className="text-center flex flex-wrap w-fit mx-auto">
+            <ul className="text-center flex flex-wrap justify-center w-fit mx-auto">
                 <li className="hover:text-slate-700 mr-3">
                     <Link href="/">Home</Link>
                 </li>
@@ -24,7 +24,7 @@ const Footer = () => {
                 </li>
             </ul>
             <div className="text-slate-700 text-center mt-4">
-                &copy;{new Date().getFullYear()} MyShop. All rights reserved.
+                &copy;{new Date().getFullYear()} Ak-shop. All rights reserved.
             </div>
             <button 
                 className="btn btn-gosht btn-circle fixed bottom-10 right-14 z-[200] opacity-50 hover:opacity-90"

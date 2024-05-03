@@ -59,6 +59,9 @@ const Items = ({ items, addItemHandler, removeItemHandler, count }) => {
                     </div>
                 ))
             }
+            <div className="grid grid-cols-1 jusfify-center p-4">
+                <Link href="/products" className="btn btn-gohst">Continue Shoping</Link>
+            </div>
         </div>
     );
 }

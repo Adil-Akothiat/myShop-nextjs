@@ -4,8 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 const CarouselLayout = ({ products }) => {
-    var top5 = products.slice(10, 15);
+    products = products.slice(8, 14);
     const [mouseOn, setMouseOn] = useState(false);
+    const priceAfterDiscount = (price, discount)=> (price - ((price * discount) / 100)).toFixed(2);
 
     useEffect(()=> {
         var time = setInterval(()=> {
@@ -31,7 +32,7 @@ const CarouselLayout = ({ products }) => {
     return (
         <div className="rounded-t-lg md:rounded-none md:rounded-r-lg w-full p-5 custom-carousel bg-white" id="crs">
             {
-                top5.map(({thumbnail, title, price}, i)=> {
+                products.map(({thumbnail, title, price, discountPercentage}, i)=> {
                     return (
                         <Link 
                             key={"crs-"+i}
@@ -43,8 +44,9 @@ const CarouselLayout = ({ products }) => {
                                 width="0"
                                 height="0"
                                 alt={title}
+                                className="w-full h-full scale-95 hover:scale-100 duration-500"
                             />
-                            <span className="price bg-yellow-200 text-stone-800 font-bold p-4 rounded-full text-xs"><strong className="text-xl">{String(price).split(".")[0]}</strong>,{String(price).split(".")[1] === undefined ? "00" : String(price).split(".")[1]} USD</span>
+                            {/* <span className="price bg-yellow-200 text-stone-800 font-bold p-4 rounded-full text-xs">{priceAfterDiscount(price, discountPercentage)} USD</span> */}
                         </Link>
                     );
                 })

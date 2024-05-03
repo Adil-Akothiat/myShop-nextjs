@@ -73,7 +73,7 @@ const Section2 = ({ products }) => {
                                                 alt={title}
                                                 width="0"
                                                 height="0"
-                                                className="object-contain w-96 h-40 select-none"
+                                                className="object-cover w-96 h-40 select-none"
                                             />
                                         </Link>
                                     </div>

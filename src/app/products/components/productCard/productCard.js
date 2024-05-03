@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addItem } from "@/redux/cart/store";
 import ScrollAnimation from "@/aos/init";
-import Product from "../../[name]/product";
+// import Product from "../../[name]/product";
 
 const ProductCard = ({ product }) => {
     const dispatch = useDispatch();
@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
                             title={product.title}
                             width="0"
                             height="0"
-                            className="object-contain w-40 h-40 mx-auto scale-90 hover:scale-100 duration-500"
+                            className="object-contain w-full h-40 lg:w-full lg:h-52 lg:object-cover mx-auto scale-90 hover:scale-100 duration-500"
                         />
                     </Link>
                 </div>

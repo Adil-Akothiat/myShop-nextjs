@@ -5,7 +5,6 @@ import Section2 from "./components/sections/section2";
 import "./home.css";
 import Section3 from "./components/sections/section3";
 import Section4 from "./components/sections/section4";
-import Section5 from "./components/sections/section5";
 import { Provider } from "react-redux";
 import store from "@/redux/cart/store";
 
@@ -17,7 +16,6 @@ const Home = ({ products }) => {
                 <Section2 products={products} />
                 <Section3 products={products} />
                 <Section4 products={products} />
-                <Section5 />
             </div>
         </Provider>
     );

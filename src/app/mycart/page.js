@@ -8,15 +8,15 @@ import Loader from "../loader/loader";
 
 const MyCartPage = () => {
     return (
-        <HeadFoot>
-            <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader />}>
+            <HeadFoot>
                 <Provider store={store}>
-                    <main style={{minHeight:"100vh"}}>
+                    <main style={{ minHeight: "100vh" }}>
                         <MyCart />
                     </main>
                 </Provider>
-            </Suspense>
-        </HeadFoot>
+            </HeadFoot>
+        </Suspense>
     );
 }
 

@@ -7,12 +7,12 @@ import Loader from "./loader/loader";
 export default async function MainPage() {
   var products = await getData("products");
   return (
-    <HeadFoot>
-      <Suspense fallback={<Loader />}>
-        <main style={{minHeight:"100vh"}}>
+    <Suspense fallback={<Loader />}>
+      <HeadFoot>
+        <main style={{ minHeight: "100vh" }}>
           <Home products={products} />
         </main>
-      </Suspense>
-    </HeadFoot>
+      </HeadFoot>
+    </Suspense>
   );
 }

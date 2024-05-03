@@ -35,7 +35,9 @@ const MenuBar = ({ categories }) => {
                         </li>
                     </ul>
                 </div>
-                <Link href="/" className="text-xl">MyShop</Link>
+                <Link href="/" className="text-md md:text-xl font-bold text-slate-700">
+                    Ak-Shop
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 z-[100]">

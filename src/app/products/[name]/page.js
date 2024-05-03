@@ -8,13 +8,13 @@ const ProductPage = async () => {
     const products = await getData("products");
 
     return (
-        <HeadFoot>
-            <main style={{minHeight:"100vh"}}>
-                <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader />}>
+            <HeadFoot>
+                <main style={{ minHeight: "100vh" }}>
                     <Product products={products} />
-                </Suspense>
-            </main>
-        </HeadFoot>
+                </main>
+            </HeadFoot>
+        </Suspense>
     );
 }
 

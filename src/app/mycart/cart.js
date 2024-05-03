@@ -5,7 +5,6 @@ import { addItem, removeItem } from "@/redux/cart/store";
 import Items from "./components/items";
 import TotalItems from "./components/totalItems";
 import ScrollAnimation from "@/aos/init";
-import Section5 from "../home/components/sections/section5";
 
 const MyCart = () => {
     const dispatch = useDispatch();
@@ -31,7 +30,6 @@ const MyCart = () => {
                 />
             <TotalItems items={items} count={count}/>
         </div>
-        <Section5 />
         </ScrollAnimation>
     );
 }
