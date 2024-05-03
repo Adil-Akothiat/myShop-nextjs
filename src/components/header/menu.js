@@ -17,7 +17,7 @@ const MenuBar = ({ categories }) => {
                         {/* </li> */}
                         <li>
                             <Link href="#categories">Categories</Link>
-                            <ul className="p-2">
+                            <ul className="p-2 max-h-64 overflow-y-scroll my-search-scroll">
                                 {
                                     categories.map((category, i) => (
                                         <li key={"cat-" + i}>
@@ -45,7 +45,7 @@ const MenuBar = ({ categories }) => {
                     <li>
                         <details>
                             <summary>Categories</summary>
-                            <ul className="p-2">
+                            <ul className="p-2 max-h-64 overflow-y-scroll my-search-scroll">
                                 {
                                     categories.map((category, i) => (
                                         <li key={"cat-" + i}>

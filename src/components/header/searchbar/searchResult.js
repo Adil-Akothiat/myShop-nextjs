@@ -56,7 +56,7 @@ const SearchResult = ({ searchInput, products, closeSearch }) => {
 
     return (
         <div className="fixed left-0 top-36 w-full h-full bg-white z-[100]">
-            <div className={`grid grid-cols-2 absolute h-full w-4/5 mx-auto gap-4 md:grid-cols-3 mb-20 ${!notFound ? "overflow-y-scroll":""} left-1/2 p-4`} style={{transform:"translateX(-50%)"}} id="my-search-scroll">
+            <div className={`my-search-scroll grid grid-cols-2 absolute h-full w-4/5 mx-auto gap-4 md:grid-cols-3 mb-20 ${!notFound ? "overflow-y-scroll":""} left-1/2 p-4`} style={{transform:"translateX(-50%)"}}>
                 {
                     notFound ? <p>Product not found!</p> :
                         result.map((p, i) => (

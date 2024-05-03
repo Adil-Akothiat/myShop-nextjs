@@ -24,7 +24,9 @@ const Product = ({ products }) => {
         <Provider store={store}>
             <ScrollAnimation animation={"fade-up"} duration={"2000"}>
             <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-y-none md:gap-x-6">
+                <div>
                 <ProductImage product={product}/>
+                </div>
                 <ProductDetails product={product}/>
             </div>
             <h3 className="text-2xl font-bold text-slate-700 pl-3 after relative after:content-[''] after:absolute after:left-0 after:top-0 after:h-full after:w-1 after:bg-slate-700 my-8">Related Products</h3>

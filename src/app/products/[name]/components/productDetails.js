@@ -25,8 +25,8 @@ const ProductDetails = ({ product }) => {
                 <div className="flex items-center justify-between">
                     <span className="font-semibold text-slate-700 text-lg">
                         <>
-                            <span className="line-through text-stone-500 mr-2">{priceAfterDiscount}</span>
-                            <span> {product.price} USD</span>
+                            <span className="line-through text-stone-500 mr-2">{product.price.toFixed(2)}</span>
+                            <span> {priceAfterDiscount} USD</span>
                         </>
                     </span>
                     <span className="bg-yellow-400 text-white rounded-md px-2">{product.category}</span>
