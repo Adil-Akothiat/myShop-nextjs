@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Section1 from "./components/sections/section1";
 import Section2 from "./components/sections/section2";
 import "./home.css";
@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import store from "@/redux/cart/store";
 
 const Home = ({ products }) => {
+    useEffect(()=> window.scrollTo(0, 0), []);
     return (
         <Provider store={store}>
             <div className="grid grid-cols-1 gap-y-20">

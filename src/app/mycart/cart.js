@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "@/redux/cart/store";
 import Items from "./components/items";
@@ -17,7 +17,7 @@ const MyCart = () => {
     const removeItemHandler = (item) => {
         dispatch(removeItem(item));
     }
-
+    useEffect(()=> window.scrollTo(0, 0), []);
 
     return (
         <ScrollAnimation animation={"fade-up"} duration={"2000"}>

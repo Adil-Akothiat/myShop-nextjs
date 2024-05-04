@@ -1,6 +1,6 @@
 "use client";
-import { usePathname } from "next/navigation";
 import React from "react";
+import { usePathname } from "next/navigation";
 import "../components/productCard/card.css";
 import ProductCard from "../components/productCard/productCard";
 import Unfound from "../components/alert/unfound";

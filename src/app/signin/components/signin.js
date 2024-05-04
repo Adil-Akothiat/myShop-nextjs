@@ -1,19 +1,21 @@
+"use client";
 import ScrollAnimation from "@/aos/init";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const SignIn = ()=> {
+    useEffect(()=> window.scrollTo(0, 0), []);
     return (
         <ScrollAnimation animation={"fade-up"} duration={"2000"}>
         <form className="grid grid-cols-1 gap-y-10">
             <h4 className="font-bold text-2xl text-center">Login</h4>
-            <div className="grid grid-cols-1 gap-y-4 w-2/5 mx-auto">
-                <div className="grid grid-cols-cc">
-                    <label htmlFor="email">E-mail <strong className="text-red-500">*</strong></label>
+            <div className="grid grid-cols-1 gap-y-4 w-full md:w-3/5 lg:w-2/5 mx-auto">
+                <div className="grid grid-cols-cc items-center">
+                    <label htmlFor="email" className="text-sm md:text-md">E-mail <strong className="text-red-500">*</strong></label>
                     <input type="email" name="e-mail" id="email" className="input rounded-md input-bordered input-sm" required/>
                 </div>
-                <div className="grid grid-cols-cc">
-                    <label htmlFor="password">Password <strong className="text-red-500">*</strong></label>
+                <div className="grid grid-cols-cc items-center">
+                    <label htmlFor="password" className="text-sm md:text-md">Password <strong className="text-red-500">*</strong></label>
                     <input type="password" name="p-assword" id="password" className="input rounded-md input-bordered input-sm" required/>
                 </div>
                 <div className="text-center">

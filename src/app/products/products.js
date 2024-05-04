@@ -69,6 +69,7 @@ const Products = ({
         document.getElementById("paginnation").classList.remove("opacity-0");
         // sortProducts();
     }
+    useEffect(()=> window.scrollTo(0, 0), []);
     return (
         <Provider store={store}>
             <div className="md:flex justify-between gap-x-6">

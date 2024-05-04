@@ -17,11 +17,13 @@ const ProductDetails = ({ product }) => {
     const addItemHandler = () => {
         dispatch(addItem({ ...product, quantity }));
     }
-
     return (
         <div className="grid grid-cols-1 gap-y-5 h-fit p-4 rounded-md">
             <h3 className="text-xl font-semibold">{product.title}</h3>
             <div className="grid grid-cols-1 gap-y-1">
+                <div>
+                    <h3 className="uppercase text-sm mb-2 text-stone-500">{product.brand}</h3>
+                </div>
                 <div className="flex items-center justify-between">
                     <span className="font-semibold text-slate-700 text-lg">
                         <>

@@ -1,10 +1,12 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import contactUsImg from "./image/contact_us.jpg";
 import "../products/components/productCard/card.css";
 import ScrollAnimation from "@/aos/init";
 
 const Contact = () => {
+    useEffect(()=> window.scrollTo(0, 0), []);
     return (
         <ScrollAnimation animation={"fade-up"} duration={"2000"}>
             <div className="grid md:grid-cols-2 gap-x-2 lg:gap-x-10 gap-y-5 mb-16">
