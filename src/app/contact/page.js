@@ -7,7 +7,7 @@ const ContactPage = () => {
     return (
         <Suspense fallback={<Loader />}>
             <HeadFoot>
-                <main style={{ minHeight: "100vh" }}>
+                <main>
                     <Contact />
                 </main>
             </HeadFoot>

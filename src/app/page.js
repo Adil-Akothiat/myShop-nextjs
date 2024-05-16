@@ -6,11 +6,13 @@ import Loader from "./loader/loader";
 
 export default async function MainPage() {
   var products = await getData("products");
+  var categories = await getData("products/categories");
+
   return (
     <Suspense fallback={<Loader />}>
       <HeadFoot>
-        <main style={{ minHeight: "100vh" }}>
-          <Home products={products} />
+        <main>
+          <Home products={products} categories={categories}/>
         </main>
       </HeadFoot>
     </Suspense>

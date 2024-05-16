@@ -90,6 +90,7 @@ const ProductImage = ({ product }) => {
                                     data-index={"index-" + i}
                                     className={`w-full h-full md:object-contain md:max-h-80 ${i === 0 ? "" : "hidden-c"}`}
                                     onMouseMove={()=> console.log("Move")}
+                                    unoptimized={true}
                                 />
                             ))
                         }

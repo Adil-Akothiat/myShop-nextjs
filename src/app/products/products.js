@@ -88,7 +88,7 @@ const Products = ({
                             :
                             <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mb-6">
                                 {
-                                    myProducts.length > 0 ? myProducts.map(product => <ProductCard key={product.id} product={product} />)
+                                    myProducts.length > 0 ? myProducts.map(product => <ProductCard key={product?.id} product={product} />)
                                         :
                                         <Unfound message={"The products doesn't exist!"} />
                                 }

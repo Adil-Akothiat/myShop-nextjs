@@ -36,6 +36,7 @@ const Items = ({ items, addItemHandler, removeItemHandler, count }) => {
                                     width="0"
                                     height="0"
                                     className="w-24 h-24 object-contain"
+                                    unoptimized={true}
                                 />
                             </Link>
                             <Link href={"/products/"+item.title}>
