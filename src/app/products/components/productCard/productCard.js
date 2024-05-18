@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
 
     return (
         <ScrollAnimation animation="fade-up" duration={"2000"}>
-            <div class="relative w-full overflow-hidden rounded-lg bg-white shadow-md">
+            <div className="relative w-full overflow-hidden rounded-lg bg-white shadow-md">
                 <Link href={"/products/" + product?.title}>
                     <Image
                         src={product?.thumbnail}
@@ -54,7 +54,7 @@ const ProductCard = ({ product }) => {
                             calcStars().map((s, i)=> s == 1 ? <FaStar key={"icon-"+i} className="text-yellow-500"/> : <FaRegStar key={"icon-"+i} className="text-yellow-500"/>)
                         }
                     </div>
-                    <div class="flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                         <p>
                             <span className="font-bold">$</span>
                             <span className="text-3xl font-bold text-slate-900">{priceAfterDiscount}</span>

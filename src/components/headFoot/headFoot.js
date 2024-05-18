@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import { getData } from "@/api/get";
-import NewsLetterSubscription from "../newslettersubs";
 
 const HeadFoot = async ({ children })=> {
     const categories = await getData("products/categories");
@@ -14,8 +13,7 @@ const HeadFoot = async ({ children })=> {
             {
                 children
             }
-            <NewsLetterSubscription />
-            <Footer />
+            <Footer categories={categories}/>
         </>
     );
 }
