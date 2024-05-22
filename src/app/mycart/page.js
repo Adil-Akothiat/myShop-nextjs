@@ -11,7 +11,7 @@ const MyCartPage = () => {
         <Suspense fallback={<Loader />}>
             <HeadFoot>
                 <Provider store={store}>
-                    <main style={{ minHeight: "100vh" }}>
+                    <main style={{ minHeight: "100vh" }} className="my-10 px-4 md:px-10 lg:px-16 xl:px-24">
                         <MyCart />
                     </main>
                 </Provider>

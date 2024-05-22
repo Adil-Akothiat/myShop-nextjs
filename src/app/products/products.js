@@ -72,7 +72,7 @@ const Products = ({
     useEffect(()=> window.scrollTo(0, 0), []);
     return (
         <Provider store={store}>
-            <div className="md:flex justify-between gap-x-6">
+            <div className="md:flex justify-between gap-x-6 my-10 px-4 md:px-10 lg:px-16 xl:px-24">
                 <FilterProducts
                     products={products}
                     setCatHandler={setCatHandler}

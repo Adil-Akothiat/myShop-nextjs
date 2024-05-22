@@ -9,7 +9,7 @@ const Contact = () => {
     useEffect(()=> window.scrollTo(0, 0), []);
     return (
         <ScrollAnimation animation={"fade-up"} duration={"2000"}>
-            <div className="grid md:grid-cols-2 gap-x-2 lg:gap-x-10 gap-y-5">
+            <div className="grid md:grid-cols-2 gap-x-2 lg:gap-x-10 gap-y-5 my-10 px-4 md:px-10 lg:px-16 xl:px-24">
                 <div className="rounded-md lg:max-h-96 custom-shadow">
                     <Image
                         unoptimized

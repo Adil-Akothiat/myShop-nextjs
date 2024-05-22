@@ -12,7 +12,7 @@ const SignIn = ()=> {
             <div className="grid grid-cols-1 gap-y-4 w-full md:w-3/5 lg:w-2/5 mx-auto">
                 <div className="grid grid-cols-cc items-center">
                     <label htmlFor="email" className="text-sm md:text-md">E-mail <strong className="text-red-500">*</strong></label>
-                    <input type="email" name="e-mail" id="email" className="input rounded-md input-bordered input-sm" required/>
+                    <input type="email" name="e-mail" id="signin-email" className="input rounded-md input-bordered input-sm" required/>
                 </div>
                 <div className="grid grid-cols-cc items-center">
                     <label htmlFor="password" className="text-sm md:text-md">Password <strong className="text-red-500">*</strong></label>

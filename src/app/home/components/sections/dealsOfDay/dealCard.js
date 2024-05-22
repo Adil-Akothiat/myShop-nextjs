@@ -9,7 +9,7 @@ import Link from "next/link";
 const DealCard = ({ product }) => {
 
     return (
-        <div class="container bg-gradient-to-r from-indigo-500 to-violet-500 text-white p-8 rounded-lg shadow-lg w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-6 items-center">
+        <div className="container bg-gradient-to-r from-indigo-500 to-violet-500 text-white p-8 rounded-lg shadow-lg w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-y-6 items-center">
             <div>
                 <Carousel
                     prevArrow={({ handlePrev }) => (

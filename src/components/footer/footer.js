@@ -46,6 +46,7 @@ const Footer = ({ categories }) => {
                                         width="0"
                                         height="0"
                                         className="w-40 h-16"
+                                        unoptimized={true}
                                     />
                                 </Link>
                                 <Link href="#googleplay" className="flex justify-center lg:justify-start group w-max">
@@ -55,6 +56,7 @@ const Footer = ({ categories }) => {
                                         width="0"
                                         height="0"
                                         className="w-40 h-16"
+                                        unoptimized={true}
                                     />
                                 </Link>
                             </div>
@@ -105,6 +107,7 @@ const Footer = ({ categories }) => {
                                             width="0"
                                             height="0"
                                             className="w-full h-16 cursor-pointer"
+                                            unoptimized={true}
                                         />
                                     )
                                 }

@@ -32,7 +32,15 @@ const ProductImage = ({ product }) => {
                 scrollIt("r");
             }
         }
-
+    }
+    const showCurrentImage = ({target})=> {
+        var { index } = target.dataset;
+        var current = document.querySelector(`.carousel-images [data-index="${index}"]`);
+        const allImages = [...document.querySelector(".carousel-images").children];
+        allImages.forEach(img => img.classList.add("hidden-c"));
+        current.classList.remove("hidden-c");
+        setActiveImage(index);
+        
     }
     const scrollIt = (dir) => {
         var walk = 0;
@@ -89,7 +97,6 @@ const ProductImage = ({ product }) => {
                                     height="0"
                                     data-index={"index-" + i}
                                     className={`w-full h-full md:object-contain md:max-h-80 ${i === 0 ? "" : "hidden-c"}`}
-                                    onMouseMove={()=> console.log("Move")}
                                     unoptimized={true}
                                 />
                             ))
@@ -110,7 +117,9 @@ const ProductImage = ({ product }) => {
                             width="0"
                             height="0"
                             data-index={"index-" + i}
-                            className={`rounded-lg p-2 border w-32 h-32 md:object-contain md:max-h-80`}
+                            className={`rounded-lg p-2 border w-32 h-32 md:object-contain md:max-h-80 cursor-pointer`}
+                            unoptimized={true}
+                            onClick={showCurrentImage}
                         />
                     ))
                 }

@@ -29,6 +29,7 @@ const NewCard = ({ product }) => {
                         width="0"
                         height="0"
                         className="rounded-xl w-full max-h-96 object-cover"
+                        unoptimized={true}
                     />
                 </Link>
                 <div className="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
@@ -53,11 +54,11 @@ const NewCard = ({ product }) => {
                     <div className="flex items-center justify-between">
                         <p>
                             <span className="font-bold">$</span>
-                            <span class="text-3xl font-bold text-slate-900">{priceAfterDiscount}</span>
-                            <span class="text-sm text-slate-900 line-through">{product?.price}</span>
+                            <span className="text-3xl font-bold text-slate-900">{priceAfterDiscount}</span>
+                            <span className="text-sm text-slate-900 line-through">{product?.price}</span>
                         </p>
                         <button
-                            class="flex items-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                            className="flex items-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
                             onClick={addItemHandler}
                             title="Add to Cart"
                         >

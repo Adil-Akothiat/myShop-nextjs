@@ -7,7 +7,7 @@ const SignInPage = ()=> {
     return (
         <Suspense fallback={<Loader />}>
             <HeadFoot>
-                <main className="grid grid-cols-1 gap-y-16">
+                <main className="grid grid-cols-1 gap-y-16 my-10 px-4 md:px-10 lg:px-16 xl:px-24">
                     <SignIn />
                 </main>
             </HeadFoot>
