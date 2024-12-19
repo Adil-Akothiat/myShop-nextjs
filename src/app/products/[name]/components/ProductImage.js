@@ -93,10 +93,11 @@ const ProductImage = ({ product }) => {
                                     key={"img-" + i}
                                     src={img}
                                     alt={product.title}
-                                    width="0"
-                                    height="0"
+                                    width="100"
+                                    height="100"
                                     data-index={"index-" + i}
                                     className={`w-full h-full md:object-contain md:max-h-80 ${i === 0 ? "" : "hidden-c"}`}
+                                    loading="lazy"
                                     unoptimized={true}
                                 />
                             ))

@@ -1,11 +1,12 @@
 import HeadFoot from "@/components/headFoot/headFoot";
 import React, { Suspense } from "react";
 import Product from "./product";
-import { getData } from "@/api/get";
+import { getData, getProduct } from "@/api/get";
 import Loader from "@/app/loader/loader";
 
 const ProductPage = async () => {
     const products = await getData("products");
+    
     return (
         <Suspense fallback={<Loader />}>
             <HeadFoot>

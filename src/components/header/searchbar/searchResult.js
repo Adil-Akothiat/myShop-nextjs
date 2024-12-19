@@ -77,7 +77,7 @@ const SearchResult = ({ searchInput, products, closeSearch }) => {
                                     </div>
                                     <div>
                                         <h4 className="">{p.title}</h4>
-                                        <h5 className="font-bold">{(p.price -  ((p.price * p.discountPercentage) / 100))} USD</h5>
+                                        <h5 className="font-bold">{(p.price -  ((p.price * p.discountPercentage) / 100)).toFixed(2)} USD</h5>
                                         <h5 className="font-bold line-through text-stone-300">{p.price.toFixed(2)}</h5>
                                     </div>
                                 </div>

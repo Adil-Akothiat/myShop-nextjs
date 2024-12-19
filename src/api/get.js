@@ -1,19 +1,22 @@
+const api = "https://dummyjson.com/";
 const getData = async (query) => {
-    var response = await fetch("https://dummyjson.com/"+query).then(res=> res.json());
-    if(query === "products") {
-        return response.products;
+    const response = await fetch(api+query+"?limit=194").then(res=> res.json());
+    // console.log(response);
+    if(response?.products) {
+        return response?.products;
+    }
+    if(response[0]?.slug) {
+        return response?.map(c=> c.slug);
     }
     return response;
 }
-const url = 'https://aliexpress-datahub.p.rapidapi.com/item_detail?itemId=3256804591426248';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '3d0500adeemsh2874fe9c5d91229p186794jsn13f8b2bed98d',
-		'X-RapidAPI-Host': 'aliexpress-datahub.p.rapidapi.com'
-	}
-};
+
+const getProduct = async (title)=> {
+    const response = await fetch(api+"products/search?title="+title).then(res=> res.json());
+    console.log(response);
+}
 
 export {
-    getData
+    getData,
+    getProduct
 };

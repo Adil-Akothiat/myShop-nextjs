@@ -25,7 +25,7 @@ const Product = ({ products }) => {
             <ScrollAnimation animation={"fade-up"} duration={"2000"}>
             <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 md:gap-y-none md:gap-x-6">
                 <div>
-                <ProductImage product={product}/>
+                    <ProductImage product={product}/>
                 </div>
                 <ProductDetails product={product}/>
             </div>

@@ -12,7 +12,6 @@ import { GoPerson } from "react-icons/go";
 
 
 const Header = ({ categories, products }) => {
-
     return (
         <Provider store={store}>
             <header className="navbar sticky top-0 z-[1000] bg-white border-b px-1 md:px-10 lg:px-16 xl:px-24">
